@@ -4,7 +4,7 @@ Repository for submitting solutions to SAiDL Summer Assignment 2023. Implemented
 
 # Section 1
 
-The code is present [here](). First use a standard Softmax, and then a Gumbel-Softmax function. 
+The code is present [here](https://github.com/astelrastogi/SAiDL-Summer-Assignment-2023/blob/main/SAiDL_Section1.ipynb). First use a standard Softmax, and then a Gumbel-Softmax function. 
 
 ## Task 1
 CNN Model with a standard Softmax activation function: 
