@@ -73,9 +73,13 @@ Using the standard Softmax function gives an accuracy of around 42%
 
 <img width="263" alt="Screenshot 2023-04-24 at 11 28 44 AM" src="https://user-images.githubusercontent.com/54110949/233911691-2cfb67c9-42c9-4bf5-bad7-472415261ec2.png">
 
-Whereas using the Gumbel-Softmax, the accuracy comes out to be 
+Whereas using the Gumbel-Softmax, the accuracy comes out to be 42% 
+
+<img width="223" alt="Screenshot 2023-04-24 at 12 02 05 PM" src="https://user-images.githubusercontent.com/54110949/233917130-014a433c-1105-4862-96b1-72e51912ca6d.png">
 
 ## Task 4
+For standard softmax - 10 epochs of 782 iterations each (took 135s on avg on each epoch) 
+For gumbel softmax - 10 epochs of 
 
 ## BONUS
 
