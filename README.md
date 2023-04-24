@@ -68,3 +68,14 @@ def gumbel_softmax_loss(y_true, y_pred):
     loss = keras.losses.categorical_crossentropy(y_true, y_pred)
     return loss
 ```
+## Task 3
+Using the standard Softmax function gives an accuracy of around 42%  
+
+<img width="263" alt="Screenshot 2023-04-24 at 11 28 44 AM" src="https://user-images.githubusercontent.com/54110949/233911691-2cfb67c9-42c9-4bf5-bad7-472415261ec2.png">
+
+Whereas using the Gumbel-Softmax, the accuracy comes out to be 
+
+## Task 4
+
+## BONUS
+
