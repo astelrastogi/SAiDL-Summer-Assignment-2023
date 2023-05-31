@@ -83,3 +83,46 @@ For gumbel softmax - 10 epochs of 782 iterations each (took 135s on avg on each 
 
 ## BONUS
 
+# Section 2A - Natural Language Processing
+To complete this task, we will follow these steps:
+
+1. Data Preparation:
+
+   a. Obtain the monolingual English corpus, specifically the English 2021 dataset from the HASOC dataset.
+   
+   b. Preprocess the data by performing necessary cleaning steps, such as removing irrelevant characters, punctuation, and normalizing the text.
+
+2. Code Mixing:
+
+   a. Use a standard translator, such as Google Translate or Microsoft Translator API, to create code-mixed sentences. Choose a target language for code mixing, such as Spanish or Hindi.
+   
+   b. Apply code mixing to the English sentences from the dataset by translating them into the target language and then translating them back into English, resulting in code-mixed sentences.
+   
+   c. Vary the code-mixing index (CMI) to create different levels of code mixing. CMI represents the proportion of words in a sentence that come from the target language.
+
+3. Finetuning the Language Models:
+
+   a. Select pre-trained language models for finetuning. In this case, we will consider both BeRT (base model) and m-BeRT (multilingual model).
+   
+   b. Preprocess the code-mixed data, including tokenization and encoding, to prepare it for finetuning.
+   
+   c. Finetune the BeRT and m-BeRT models on the code-mixed dataset. The finetuning process involves training the models on the code-mixed data and updating their weights to improve performance on the task of detecting abuse in social media content.
+
+4. Performance Evaluation:
+
+   a. Use a standard code-mixed dataset for evaluation, such as the HASOC dataset.
+   
+   b. Apply the finetuned BeRT and m-BeRT models to predict the labels (e.g., abuse or non-abuse) for the code-mixed sentences in the evaluation dataset.
+   
+   c. Calculate the accuracy of both models by comparing the predicted labels with the ground truth labels from the evaluation dataset.
+   
+   d. Compare the performance of BeRT and m-BeRT models at different levels of code mixing (varying CMI values) by analyzing the accuracy scores obtained.
+
+5. Justification:
+
+   a. Analyze and interpret the results to understand the relationship between code-mixing index (CMI) and model performance (accuracy).
+   
+   b. Justify the observations based on the hypothesis that as the CMI increases, the performance of the models might decrease due to the increased complexity and noise introduced by code mixing. Additionally, discuss the differences in performance between BeRT and m-BeRT models, considering the multilingual nature of m-BeRT.
+
+Note: The specific implementation details, such as the choice of translator and pre-trained models, may vary based on the available resources and preferences.
+
