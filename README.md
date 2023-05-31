@@ -129,17 +129,13 @@ Note: Thought of doing NLP along with Computer Vision, but couldn't get access t
 # Section 2C - Computer Vision
 To create a model that accepts a text prompt and an image as input and uses CLIP to create embeddings, followed by training a decoder for binary segmentation maps, these steps can be done:
 
-1. **Set up the environment**: Install the necessary libraries and frameworks such as PyTorch, OpenAI's CLIP, and any other dependencies required for training and inference.
+1. **Data Preparation**: Downloaded the given dataset using `gdown` from the given link. Then resizing, normalizing, and converting them into suitable formats for training should be done. 
 
-2. **Prepare the dataset**: Collect or create a dataset that consists of paired text prompts and corresponding images with binary segmentation maps. Ensure that the images and segmentation maps are aligned correctly.
+2. **Prepare the CLIP model**: Loading the pre-trained CLIP model from OpenAI's repository and initializing it. 
 
-3. **Load and preprocess the data**: Load the dataset and preprocess the images and segmentation maps as per your requirements. This may involve resizing, normalizing, and converting them into suitable formats for training.
+3. **Create embeddings**: Passing the text prompts and images through the CLIP model to obtain embeddings. Using the CLIP model's image and text encoders to create vector representations of the input.
 
-4. **Prepare the CLIP model**: Load the pre-trained CLIP model from OpenAI's repository and initialize it. You can use the CLIP model available in the TorchVision library or directly from the CLIP GitHub repository.
-
-5. **Create embeddings**: Pass the text prompts and images through the CLIP model to obtain embeddings. Use the CLIP model's image and text encoders to create vector representations of the input.
-
-6. **Train the decoder**: Design a decoder architecture that takes the concatenated embeddings as input and produces a binary segmentation map. This decoder can be a convolutional neural network (CNN) or any suitable architecture that can map the embeddings to the segmentation map.
+4. **Train the decoder**: Designed a decoder architecture that takes the concatenated embeddings as input and produces a binary segmentation map. This decoder can be a convolutional neural network (CNN) or any suitable architecture that can map the embeddings to the segmentation map.
 ```
 class Decoder(nn.Module):
     def __init__(self, embedding_size, segmentation_size):
@@ -156,32 +152,13 @@ segmentation_size = 256  # Size of the binary segmentation map
 decoder = Decoder(embedding_size, segmentation_size)
 decoder.to("cuda")
 ```
-7. **Define loss function**: Define a suitable loss function to compare the predicted segmentation map with the ground truth segmentation map. Common choices include binary cross-entropy loss or Dice loss.
-
-8. **Train the model**: Train the decoder using the embeddings obtained from the CLIP model. Pass the concatenated embeddings through the decoder and optimize the decoder parameters using backpropagation. Update the decoder's weights to minimize the defined loss function.
+7. **Define loss function**: Can use pytorch's `nn.BCEWithLogitsLoss()` loss. This loss combines a Sigmoid layer and the BCELoss in one single class.
+8. 
+9. **Train the model**: Train the decoder using the embeddings obtained from the CLIP model. Pass the concatenated embeddings through the decoder and optimize the decoder parameters using backpropagation. Update the decoder's weights to minimize the defined loss function.
 
 9. **Evaluate the model**: Use a validation set to evaluate the performance of the trained model. Calculate metrics such as accuracy, precision, recall, or intersection over union (IoU) to measure the quality of the binary segmentation maps produced by the model.
 
 10. **Inference**: Use the trained model for inference by providing a text prompt and an image as input. Generate the embeddings using CLIP and pass them through the trained decoder to obtain the binary segmentation map for arbitrary objects specified in the text prompt.
-```
-def inference(text_prompt, image):
-    image = image.to("cuda")
-    prompt = preprocess(text_prompt).to("cuda")
 
-    # Obtain CLIP embeddings
-    with torch.no_grad():
-        image_embedding = clip_model.encode_image(image.unsqueeze(0))
-        text_embedding = clip_model.encode_text(prompt.unsqueeze(0))
 
-    # Concatenate image and text embeddings
-    embeddings = torch.cat((image_embedding, text_embedding), dim=1)
-
-    # Forward pass through the decoder
-    segmentation_output = decoder(embeddings)
-
-    # Apply sigmoid to get binary segmentation map
-    segmentation_map = torch.sigmoid(segmentation_output)
-
-    return segmentation_map.squeeze().cpu().numpy()
-```
 Note: Extracted the zip file from gdown, but couldn't unzip it 
