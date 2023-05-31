@@ -124,5 +124,5 @@ To complete this task, we will follow these steps:
    
    b. Justify the observations based on the hypothesis that as the CMI increases, the performance of the models might decrease due to the increased complexity and noise introduced by code mixing. Additionally, discuss the differences in performance between BeRT and m-BeRT models, considering the multilingual nature of m-BeRT.
 
-Note: The specific implementation details, such as the choice of translator and pre-trained models, may vary based on the available resources and preferences.
+Note: Thought of doing NLP along with Computer Vision, but couldn't get access to HASOC Dataset within time
 
