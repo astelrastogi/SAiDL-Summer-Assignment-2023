@@ -152,13 +152,13 @@ segmentation_size = 256  # Size of the binary segmentation map
 decoder = Decoder(embedding_size, segmentation_size)
 decoder.to("cuda")
 ```
-7. **Define loss function**: Can use pytorch's `nn.BCEWithLogitsLoss()` loss. This loss combines a Sigmoid layer and the BCELoss in one single class.
-8. 
-9. **Train the model**: Train the decoder using the embeddings obtained from the CLIP model. Pass the concatenated embeddings through the decoder and optimize the decoder parameters using backpropagation. Update the decoder's weights to minimize the defined loss function.
+5. **Define loss function**: Can use pytorch's `nn.BCEWithLogitsLoss()` loss. This loss combines a Sigmoid layer and the BCELoss in one single class.
+ 
+6. **Train the model**: Train the decoder using the embeddings obtained from the CLIP model. Pass the concatenated embeddings through the decoder and optimize the decoder parameters using backpropagation. Update the decoder's weights to minimize the defined loss function.
 
-9. **Evaluate the model**: Use a validation set to evaluate the performance of the trained model. Calculate metrics such as accuracy, precision, recall, or intersection over union (IoU) to measure the quality of the binary segmentation maps produced by the model.
+7. **Evaluate the model**: Use a validation set to evaluate the performance of the trained model. Calculate metrics such as accuracy, precision, recall, or intersection over union (IoU) to measure the quality of the binary segmentation maps produced by the model.
 
-10. **Inference**: Use the trained model for inference by providing a text prompt and an image as input. Generate the embeddings using CLIP and pass them through the trained decoder to obtain the binary segmentation map for arbitrary objects specified in the text prompt.
+8. **Inference**: Use the trained model for inference by providing a text prompt and an image as input. Generate the embeddings using CLIP and pass them through the trained decoder to obtain the binary segmentation map for arbitrary objects specified in the text prompt.
 
 
 Note: Extracted the zip file from gdown, but couldn't unzip it 
