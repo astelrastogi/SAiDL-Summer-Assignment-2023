@@ -126,3 +126,4 @@ To complete this task, we will follow these steps:
 
 Note: Thought of doing NLP along with Computer Vision, but couldn't get access to HASOC Dataset within time
 
+# Section 2C - Computer Vision
